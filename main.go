@@ -11,15 +11,21 @@ func createRandomNumber() int {
 	return rand.Intn(50)
 }
 
-func answerQuestion() {
+func answerQuestion() int {
 	var answer int
+	fmt.Println("What's your answer?")
 	fmt.Scanln(&answer)
+	return answer
 }
 
 func main() {
 	a := createRandomNumber()
 	b := createRandomNumber()
+	fmt.Println("How much is: ", a, "+", b)
 	result := a + b
-	fmt.Println(a, "+", b)
-	fmt.Println(result)
+	if result == answerQuestion() {
+		fmt.Println("You are right, the result is: ", result)
+	} else {
+		fmt.Println("You are wrong, the result is: ", result)
+	}
 }
